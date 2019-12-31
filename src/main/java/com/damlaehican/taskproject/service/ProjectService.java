@@ -1,8 +1,10 @@
 package com.damlaehican.taskproject.service;
 
+import com.damlaehican.taskproject.dto.ProjectDto;
 import com.damlaehican.taskproject.entity.Issue;
 import com.damlaehican.taskproject.entity.Project;
 import com.damlaehican.taskproject.entity.User;
+import com.damlaehican.taskproject.util.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -10,15 +12,17 @@ import java.util.List;
 
 public interface ProjectService {
 
-    Project save(Project project);
+    ProjectDto save(ProjectDto project);
 
-    Project getById(Long id);
+    ProjectDto getById(Long id);
 
-    List<Project> getByProjectCode(String projectCode);
+    Project getByProjectCode(String projectCode);
 
-    List<Project> getByProjectCodeContains(String projectCode);
+    List<ProjectDto> getByProjectCodeContains(String projectCode);
 
-    Page<Project> getAllPageable(Pageable pageable);
+    TPage<ProjectDto> getAllPageable(Pageable pageable);
 
-    Boolean delete(Project project);
+    Boolean delete(ProjectDto project);
+
+    ProjectDto update(Long id, ProjectDto projectDto);
 }

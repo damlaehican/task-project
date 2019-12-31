@@ -9,6 +9,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.Arrays;
 
@@ -19,6 +21,7 @@ public class IssueServiceImpl implements IssueService {
     private final IssueRepository issueRepository;
     private final ModelMapper modelMapper;
 
+    public static String uploadDirectory = System.getProperty("user.dir") +"/uploads";
 
     public IssueServiceImpl(IssueRepository issueRepository, ModelMapper modelMapper) {
         this.issueRepository = issueRepository;
@@ -51,7 +54,16 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
-    public Boolean delete(IssueDto issue) {
+    public Boolean delete(Long issueId) {
+        issueRepository.deleteById(issueId);
+
         return null;
     }
+
+    @Override
+    public IssueDto update(Long id, IssueDto projectDto) {
+        return null;
+    }
+
+
 }

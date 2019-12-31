@@ -1,16 +1,16 @@
 package com.damlaehican.taskproject.service;
 
-import com.damlaehican.taskproject.entity.Issue;
+import com.damlaehican.taskproject.dto.UserDto;
 import com.damlaehican.taskproject.entity.User;
-import org.springframework.data.domain.Page;
+import com.damlaehican.taskproject.util.TPage;
 import org.springframework.data.domain.Pageable;
 
 public interface UserService {
-    User save(User user);
+    UserDto save(UserDto user);
 
     User getById(Long id);
 
-    Page<User> getAllPageable(Pageable pageable);
+    TPage<UserDto> getAllPageable(Pageable pageable);
 
     User getByUsername(String username);
 }

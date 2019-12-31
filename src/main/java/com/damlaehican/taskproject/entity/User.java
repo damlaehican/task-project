@@ -7,12 +7,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users", indexes = {@Index(name = "idx_username", columnList = "uname")})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,4 +32,5 @@ public class User {
     @JoinColumn(name = "assignee_user_id")
     @OneToMany(fetch = FetchType.LAZY)
     private List<Issue> issues;
+
 }

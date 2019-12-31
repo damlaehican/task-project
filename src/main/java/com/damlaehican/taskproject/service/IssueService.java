@@ -4,6 +4,7 @@ import com.damlaehican.taskproject.dto.IssueDto;
 import com.damlaehican.taskproject.util.TPage;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.ui.Model;
 
 
 public interface IssueService {
@@ -14,5 +15,8 @@ public interface IssueService {
 
     TPage<IssueDto> getAllPageable(Pageable pageable);
 
-    Boolean delete(IssueDto issue);
+    Boolean delete(Long issue);
+
+    IssueDto update(Long id, IssueDto projectDto);
+
 }
